@@ -24,7 +24,19 @@ This application provides a comprehensive system to manage and schedule flights.
    - `MyController`: Implements the `Controller` interface, providing logic for airport sorting and flight searching.
 
 ### 3. **Persistence**
-   - Data is read and managed using dedicated classes (`MyCitiesReader`, `MyAircraftsReader`, `MyFlightScheduleReader`) and stored using `DataManager`.
+   The application includes several classes to handle data reading and storage operations:
+
+   - **Readers:**
+     - `MyAircraftsReader`: Reads aircraft data from input files.
+     - `MyCitiesReader`: Reads city and airport data from input files.
+     - `MyFlightScheduleReader`: Reads flight schedule data from input files.
+     - `AircraftsReader`, `CitiesReader`, and `FlightScheduleReader`: Interfaces for implementing custom readers.
+
+   - **Data Manager:**
+     - `DataManager`: Coordinates data reading and stores airport, aircraft, and flight schedule information.
+
+   - **Exception Handling:**
+     - `BadFileFormatException`: Custom exception to handle file format errors during data loading.
 
 ### 4. **Testing**
    - `FlightsApplicationMock`: A mock implementation for testing with predefined datasets.
@@ -38,8 +50,8 @@ This application provides a comprehensive system to manage and schedule flights.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/flight-management-system.git
-   cd flight-management-system
+   git clone https://github.com/andengine/ManageFlights.git
+   cd ManageFlights
    ```
 2. Compile the application:
    ```bash
@@ -68,7 +80,10 @@ This application provides a comprehensive system to manage and schedule flights.
 
 - `flights`: Main package containing application logic and UI entry points.
 - `flights.controller`: Contains the controllers implementing business logic.
-- `flights.persistence`: Handles data reading and storage operations.
+- `flights.persistence`: Handles data reading and storage operations, including:
+  - `DataManager`
+  - `MyAircraftsReader`, `MyCitiesReader`, `MyFlightScheduleReader`
+  - `AircraftsReader`, `CitiesReader`, `FlightScheduleReader`
 - `flights.ui`: Provides UI implementations for graphical and console interfaces.
 
 ## Contributing
